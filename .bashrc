@@ -146,14 +146,11 @@ function proml {
   local  LIGHT_GRAY="\[\033[0;37m\]"
   local     DEFAULT="\[\033[0m\]"
 
-  local start_angle="┌─"
-  local stop_angle="└─▪"
   local start_smooth="╭─"
   local stop_smooth="╰─▪"
 
   #PS1="\u@\h:\w$LIGHT_RED\$(__git_ps1)$DEFAULT\$ "
-  PS1="$LIGHT_YELLOW$start_smooth$LIGHT_CYAN\u$LIGHT_RED@$LIGHT_MAGENTA\h$LIGHT_YELLOW:$LIGHT_BLUE[$LIGHT_BLUE\w$LIGHT_RED\$(__git_ps1)$LIGHT_BLUE]\n$DEFAULT$LIGHT_YELLOW$stop_smooth $DEFAULT"
-  #PS1="$LIGHT_CYAN\u$LIGHT_RED@$LIGHT_MAGENTA\h$LIGHT_YELLOW:$LIGHT_BLUE[\w$LIGHT_RED\$(__git_ps1)$LIGHT_BLUE]\n$LIGHT_YELLOW>>> $DEFAULT"
+  PS1="$MAGENTA$start_smooth$LIGHT_CYAN\u$LIGHT_RED@$LIGHT_MAGENTA\h$MAGENTA:$LIGHT_BLUE[$LIGHT_BLUE\w$LIGHT_RED\$(__git_ps1)$LIGHT_BLUE]\n$DEFAULT$MAGENTA$stop_smooth $DEFAULT"
 }
 
 proml
@@ -193,11 +190,6 @@ alias untar-bz2='tar xjf'
 
 #################################### texlive ################################
 export PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH
-####################################################################
-
-#################################### intellij ################################
-export PATH=~/.pycharm-community-3.4.1/bin:$PATH
-export PATH=~/.intelliJ_idea/bin:$PATH
 ####################################################################
 
 #local bash customization
