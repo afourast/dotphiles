@@ -1,0 +1,33 @@
+[global_config]
+  enabled_plugins = InactivityWatch, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  handle_size = -3
+  suppress_multiple_term_dialog = True
+[keybindings]
+  next_tab = <Alt>Page_Down
+  go_up = <Alt>k
+  resize_up = <Primary><Shift>k
+  resize_left = <Primary><Shift>h
+  go_prev = <Primary><Shift>p
+  prev_tab = <Alt>Page_Up
+  go_down = <Alt>j
+  go_right = <Alt>l
+  go_next = <Primary><Shift>n
+  go_left = <Alt>h
+  resize_right = <Primary><Shift>l
+  resize_down = <Primary><Shift>j
+[profiles]
+  [[default]]
+    background_darkness = 0.7
+    background_image = None
+    background_color = "#ffffdd"
+    show_titlebar = False
+    foreground_color = "#000000"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]

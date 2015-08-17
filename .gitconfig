@@ -1,0 +1,18 @@
+[user]
+  name = Triantafyllos Afouras
+  email = afourast@gmail.com
+
+[color]
+  ui = true
+
+[log]
+  decorate = full
+
+[push]
+  default = tracking
+
+[alias]
+  tree = log --oneline --graph
+
+[core]
+  excludesfile = ~/.gitignore_global
