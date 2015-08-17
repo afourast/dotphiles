@@ -1,9 +1,4 @@
-( set -x 
-  git submodule update --init --recursive
-)
-echo
-
-files=".bashrc  .inputrc .vimrc .gitconfig .gitignore_global .octaverc .vim"
+files=".bashrc  .inputrc .vimrc .gitconfig .gitignore_global .octaverc"
 
 ld=$PWD
 cd $HOME 
@@ -23,6 +18,18 @@ for dir in `ls $ld/.config`; do
   )
   echo
 done  
+
+(set -x;
+rm -rf -- .vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+)
+vim +PluginInstall +qall
+echo
+
+
+(set -x;
+ln -s $ld/.vim/syntax .vim/syntax
+)
 
 echo Finished bootstrapping dotphiles!
 

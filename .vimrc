@@ -1,3 +1,47 @@
+""""""""""""""""""" Vundle """""""""""""""" 
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'ervandew/supertab'
+Plugin 'craigemery/vim-autotag'
+Plugin 'tpope/vim-surround'
+Plugin 'jaredly/vim-debug'
+
+" plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+""""""""""""""""""" /Vundle """""""""""""""""""""
+
 " Enable syntax highlighting
 syntax on
 
@@ -39,14 +83,6 @@ set clipboard=unnamed,unnamedplus
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.tex setlocal spell
 autocmd FileType gitcommit setlocal spell
-
-" pathogen disable
-let g:pathogen_disabled = []
-" to disable a pathogen plugin use next line  
-"call add(g:pathogen_disabled, '<plugin_name>'
-
-" enable pathogen
-execute pathogen#infect()
 
 " add custom filetypes
 au BufNewFile,BufRead *.launch set filetype=xml
