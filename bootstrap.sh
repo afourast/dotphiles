@@ -1,4 +1,4 @@
-files=".bashrc  .inputrc .vimrc .gitconfig .gitignore_global .octaverc"
+files=".bashrc .zshrc .inputrc .vimrc .gitconfig .gitignore_global .octaverc"
 
 ld=$PWD
 cd $HOME 
