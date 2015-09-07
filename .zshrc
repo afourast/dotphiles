@@ -50,12 +50,11 @@ ZSH_THEME="mycustom"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-syntax-highlighting)
 
 # User configuration
 
 export PATH="/usr/local/texlive/2014/bin/x86_64-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,5 +87,8 @@ alias tar-gz='tar czf'
 alias tar-bz2='tar cjf'
 alias untar-gz='tar xzf'
 alias untar-bz2='tar xjf'
+
+#git
+alias gpo='git push origin $(current_branch)'
 #######################################################
 #
