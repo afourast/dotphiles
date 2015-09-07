@@ -1,4 +1,4 @@
-files=".bashrc .zshrc .inputrc .vimrc .gitconfig .gitignore_global .octaverc .ipython/profile_default/ipython_config.py"
+files=".bashrc .inputrc .vimrc .gitconfig .gitignore_global .octaverc .ipython/profile_default/ipython_config.py"
 
 ld=$PWD
 cd $HOME 
@@ -29,6 +29,26 @@ echo
 
 (set -x;
 ln -s $ld/.vim/syntax .vim/syntax
+)
+
+#install zsh and ohmyz
+(set -x;
+rm -fr .oh-my-zsh/
+sudo apt-get install zsh
+curl -L http://install.ohmyz.sh > install.sh
+sh install.sh
+rm install.sh
+)
+
+for file in $(ls $ld/zsh/themes); do
+(set -x;
+ln -s $ld/zsh/themes/$file .oh-my-zsh/themes/$file
+)
+done
+
+(set -x;
+rm .zshrc && ln -s $ld/.zshrc 
+zsh
 )
 
 echo Finished bootstrapping dotphiles!
