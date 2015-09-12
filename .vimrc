@@ -23,13 +23,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'jaredly/vim-debug'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
+Plugin 'LaTeX-Suite-aka-Vim-LaTeX' 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+"filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -68,7 +68,7 @@ set mouse=a
 set number
 
 " Filetype Indentation Mode
-filetype plugin indent on
+"filetype plugin indent on
 
 " Indentation settings for using 2 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
@@ -109,8 +109,6 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 filetype plugin on
 
-set shellslash
-
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
@@ -129,7 +127,7 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats='pdf, aux'
 
 "uncomment this line to compile xelatex. 
-let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
+"let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
 
 "auto compile when saving 
 au BufWritePost *.tex silent call Tex_RunLaTeX()
@@ -191,5 +189,11 @@ map <A-k> :MBEbp<CR>
 :set keymap=greek_utf-8
 :set iminsert=0
 :set imsearch=-1
+
+"Folding method 
+set foldmethod=syntax
+set foldlevelstart=1
+"set foldmethod=indent
+"set foldnestmax=2
 
 
