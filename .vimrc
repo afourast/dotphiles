@@ -186,3 +186,10 @@ map <A-k> :MBEbp<CR>
 "This trigger takes advantage of the fact that the quickfix window can be easily distinguished by its file-type, qf.
 "The wincmd J command is equivalent to the Ctrl+W, Shift+J shortcut telling Vim to move a window to the very bottom
 :autocmd FileType qf wincmd J
+
+"greek language input - toggle with ctrl-6
+:set keymap=greek_utf-8
+:set iminsert=0
+:set imsearch=-1
+
+
