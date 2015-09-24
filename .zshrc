@@ -97,6 +97,7 @@ alias psu="ps -u $USER | grep"
 
 #git
 alias gpo='git push origin $(current_branch)'
+alias gr='git reset'
 
 # Tmux
 alias tmux='tmux -2'
