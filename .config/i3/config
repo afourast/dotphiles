@@ -191,3 +191,10 @@ workspace 8 output $monitor2
 workspace 9 output $monitor2
 workspace 10 output $monitor2
 
+#open types of windows in different workspaces
+#http://i3wm.org/docs/userguide.html#_automatically_putting_clients_on_specific_workspaces
+#http://i3wm.org/docs/userguide.html#command_criteria
+assign [class="Thunderbird"] 10
+assign [class="jetbrains-pycharm-ce"] 6
+assign [title="Figure"] 3
+
