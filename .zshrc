@@ -75,6 +75,16 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# fix zsh up-arrow completion
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '\eOA' up-line-or-beginning-search
+bindkey '\e[A' up-line-or-beginning-search
+bindkey '\eOB' down-line-or-beginning-search
+bindkey '\e[B' down-line-or-beginning-search
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -88,6 +98,7 @@ alias tar-gz='tar czf'
 alias tar-bz2='tar cjf'
 alias untar-gz='tar xzf'
 alias untar-bz2='tar xjf'
+alias psu="ps -u $USER | grep"
 
 #git
 alias gpo='git push origin $(current_branch)'
@@ -104,4 +115,4 @@ alias ev='vim ~/.vimrc'
 alias et='vim ~/.tmux.conf'
 alias ez='vim ~/.zshrc'
 #######################################################
-#
+
