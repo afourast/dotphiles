@@ -55,6 +55,7 @@ plugins=(git zsh-syntax-highlighting)
 # User configuration
 
 export PATH="/usr/local/texlive/2014/bin/x86_64-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PYTHONPATH="$HOME/code/rl-classification-python"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,5 +91,17 @@ alias untar-bz2='tar xjf'
 
 #git
 alias gpo='git push origin $(current_branch)'
+
+# Tmux
+alias tmux='tmux -2'
+alias ta='tmux attach -t'
+alias tnew='tmux new -s'
+alias tls='tmux ls'
+alias tkill='tmux kill-session -t'
+
+# convenience for editing configs
+alias ev='vim ~/.vimrc'
+alias et='vim ~/.tmux.conf'
+alias ez='vim ~/.zshrc'
 #######################################################
 #

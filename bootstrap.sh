@@ -1,4 +1,4 @@
-files=".bashrc .inputrc .vimrc .gitconfig .gitignore_global .octaverc .ipython/profile_default/ipython_config.py"
+files=".bashrc .inputrc .vimrc, .tmux.conf .gitconfig .gitignore_global .octaverc .ipython/profile_default/ipython_config.py"
 
 ld=$PWD
 cd $HOME 
