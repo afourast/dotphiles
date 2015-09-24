@@ -100,7 +100,7 @@ alias gpo='git push origin $(current_branch)'
 
 # Tmux
 alias tmux='tmux -2'
-alias ta='tmux attach -t'
+alias ta='tmux attach -t 0'
 alias tnew='tmux new -s'
 alias tls='tmux ls'
 alias tkill='tmux kill-session -t'
