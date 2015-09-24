@@ -1,4 +1,5 @@
-""""""""""""""""""" Vundle """""""""""""""" 
+
+"""""""""""""""""" Vundle """""""""""""""" 
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -21,9 +22,11 @@ Plugin 'ervandew/supertab'
 Plugin 'craigemery/vim-autotag'
 Plugin 'tpope/vim-surround'
 Plugin 'jaredly/vim-debug'
+Plugin 'bserem/vim-greek-spell'
+
 
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'LaTeX-Suite-aka-Vim-LaTeX' 
+Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -88,7 +91,7 @@ autocmd FileType gitcommit setlocal spell
 au BufNewFile,BufRead *.launch set filetype=xml
 
 "Set working directory to the current file
-"autocmd BufEnter * lcd %:p:h
+autocmd BufEnter * lcd %:p:h
 
 " toggle NERDTree with Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
@@ -127,11 +130,18 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats='pdf, aux'
 
 "uncomment this line to compile xelatex. 
-"let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
+let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
 
 "auto compile when saving 
 au BufWritePost *.tex silent call Tex_RunLaTeX()
 au BufWritePost *.tex silent !pkill -USR1 xdvi.bin
+
+"set line width to 100 for latex files
+autocmd bufreadpre *.tex setlocal textwidth=100
+
+"convert numberd list to itemize pressing f6
+":map <f6> ?^\D<cr>jmaV/<cr>kmb:s/^../\\item/<cr>'aV'b<f5>itemize<cr>
+":map <f6> {jV}:s/^../\\item/<cr>{jV}k<f5>itemize<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " tab completion
@@ -142,7 +152,6 @@ vnoremap <C-h> "hy:%s/<C-r>h//gc<left><left><left>
 
 " replace visualized 
 vnoremap <C-g> "hy:grep -rn <C-r>h *<left><left>
-
 
 """"""""""""""""""" Octave syntax highlighting """""""""""""""" 
 augroup filetypedetect
@@ -189,6 +198,27 @@ map <A-k> :MBEbp<CR>
 :set keymap=greek_utf-8
 :set iminsert=0
 :set imsearch=-1
+inoremap <M-F2> <C-^>
+":set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
+
+"spell checking toggle between greek and english
+function! ToggleSpelllang()
+  if(&spell == 0)
+    set spell spelllang=el
+    echo "Spell is on, language is Greek"
+  elseif(&spelllang == 'el') && (&spell == 1)
+    set spell spelllang=en_us
+    echo "Spell is on, language is US English"
+  elseif((&spelllang == 'en_us') || (&spelllang == 'en')) && (&spell == 1)
+    set nospell
+    echo "Spell is off"
+  endif
+endfunc
+nnoremap <silent> <M-F3> :call ToggleSpelllang()<CR>
+
+"reload vimrc  
+nnoremap <silent> <F4> :so %<CR>
+
 
 "Folding method 
 set foldmethod=syntax
