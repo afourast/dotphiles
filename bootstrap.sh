@@ -1,4 +1,4 @@
-files=".bashrc .inputrc .vimrc, .tmux.conf .gitconfig .gitignore_global .octaverc .ipython/profile_default/ipython_config.py"
+files=".bashrc .inputrc .vimrc .tmux.conf .gitconfig .gitignore_global .octaverc .ipython/profile_default/ipython_config.py"
 
 ld=$PWD
 cd $HOME 
@@ -34,7 +34,7 @@ ln -s $ld/.vim/syntax .vim/syntax
 #install zsh and ohmyz
 (set -x;
 rm -fr .oh-my-zsh/
-sudo apt-get install zsh
+sudo apt-get install zsh -y
 curl -L http://install.ohmyz.sh > install.sh
 sh install.sh
 rm install.sh
