@@ -202,19 +202,33 @@ inoremap <M-F2> <C-^>
 ":set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
 
 "spell checking toggle between greek and english
-function! ToggleSpelllang()
-  if(&spell == 0)
-    set spell spelllang=el
-    echo "Spell is on, language is Greek"
-  elseif(&spelllang == 'el') && (&spell == 1)
-    set spell spelllang=en_us
-    echo "Spell is on, language is US English"
-  elseif((&spelllang == 'en_us') || (&spelllang == 'en')) && (&spell == 1)
-    set nospell
-    echo "Spell is off"
+"function! ToggleSpelllang()
+  "if(&spell == 0)
+    "set spell spelllang=el
+    "echo "Spell is on, language is Greek"
+  "elseif(&spelllang == 'el') && (&spell == 1)
+    "set spell spelllang=en_us
+    "echo "Spell is on, language is US English"
+  "elseif((&spelllang == 'en_us') || (&spelllang == 'en')) && (&spell == 1)
+    "set nospell
+    "echo "Spell is off"
+  "endif
+"endfunc
+"nnoremap <silent> <M-F3> :call ToggleSpelllang()<CR>
+
+set spell spelllang=en_us,el
+
+"Toggle text width in latex 
+function! ToggleLineWidth()
+  if(&textwidth ==100 )
+    setlocal textwidth=1000
+    echo "Set text width to 1000"
+  else
+    setlocal textwidth=100
+    echo "Set text width to 100"
   endif
 endfunc
-nnoremap <silent> <M-F3> :call ToggleSpelllang()<CR>
+nnoremap <silent> <M-F4> :call ToggleLineWidth()<CR>
 
 "reload vimrc  
 nnoremap <silent> <F4> :so %<CR>

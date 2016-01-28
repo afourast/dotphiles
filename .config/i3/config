@@ -176,6 +176,7 @@ bindsym $mod+n exec "nautilus"
 bindsym $mod+b exec "firefox"
 bindsym $mod+c exec "google-chrome"
 bindsym $mod+t exec "chromium-browser"
+bindsym $mod+m exec "gnome-system-monitor"
 
 #set $monitor2 DP1
 set $monitor2 HDMI2

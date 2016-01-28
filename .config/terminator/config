@@ -17,11 +17,12 @@
   resize_down = <Primary><Shift>j
 [profiles]
   [[default]]
-    background_darkness = 0.7
     background_image = None
-    background_color = "#ffffdd"
-    show_titlebar = False
+    background_darkness = 0.7
     foreground_color = "#000000"
+    scroll_on_output = False
+    show_titlebar = False
+    background_color = "#ffffdd"
 [layouts]
   [[default]]
     [[[child1]]]
