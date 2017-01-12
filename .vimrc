@@ -23,10 +23,11 @@ Plugin 'craigemery/vim-autotag'
 Plugin 'tpope/vim-surround'
 Plugin 'jaredly/vim-debug'
 Plugin 'bserem/vim-greek-spell'
-
+"Plugin 'vim-scripts/LaTeX-Suite-aka-Vim-LaTeX'
+Plugin 'vim-latex/vim-latex'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex'
+"Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -83,9 +84,9 @@ set expandtab
 set clipboard=unnamed,unnamedplus
 
 " set spell checking for certain filetypes
-autocmd BufRead,BufNewFile *.md setlocal spell
-autocmd BufRead,BufNewFile *.tex setlocal spell
-autocmd FileType gitcommit setlocal spell
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us,el
+autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_us,el
+autocmd FileType gitcommit setlocal spell spelllang=en_us,el
 
 " add custom filetypes
 au BufNewFile,BufRead *.launch set filetype=xml
@@ -130,7 +131,7 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats='pdf, aux'
 
 "uncomment this line to compile xelatex. 
-let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
+"let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
 
 "auto compile when saving 
 au BufWritePost *.tex silent call Tex_RunLaTeX()
@@ -216,7 +217,7 @@ inoremap <M-F2> <C-^>
 "endfunc
 "nnoremap <silent> <M-F3> :call ToggleSpelllang()<CR>
 
-set spell spelllang=en_us,el
+"set spell spelllang=en_us,el
 
 "Toggle text width in latex 
 function! ToggleLineWidth()
