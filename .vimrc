@@ -85,8 +85,10 @@ set clipboard=unnamed,unnamedplus
 
 " set spell checking for certain filetypes
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us,el
-autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_us,el
+"autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_us,el
 autocmd FileType gitcommit setlocal spell spelllang=en_us,el
+
+let g:tex_comment_nospell=1
 
 " add custom filetypes
 au BufNewFile,BufRead *.launch set filetype=xml
@@ -134,8 +136,8 @@ let g:Tex_MultipleCompileFormats='pdf, aux'
 "let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
 
 "auto compile when saving 
-au BufWritePost *.tex silent call Tex_RunLaTeX()
-au BufWritePost *.tex silent !pkill -USR1 xdvi.bin
+"au BufWritePost *.tex silent call Tex_RunLaTeX()
+"au BufWritePost *.tex silent !pkill -USR1 xdvi.bin
 
 "set line width to 100 for latex files
 autocmd bufreadpre *.tex setlocal textwidth=100
@@ -175,7 +177,7 @@ map <A-l> <C-w><Right>
 map <A-h> <C-w><Left>
 
 " Maps Ctrl-Alt-[h,l] to resizing a window split
-map <silent> <C-A-h> <C-w><
+map <silrnt> <C-A-h> <C-w><
 map <silent> <C-A-l> <C-W>>
 
 " remove toolbar in gvim 
@@ -188,6 +190,8 @@ let g:miniBufExplVSplit = 20
 let g:miniBufExplBRSplit = 1   
 
 " map switching between buffers via minibuffer plugin
+map <C-w>j :MBEbn<CR>
+map <C-w>k :MBEbp<CR>
 map <A-j> :MBEbn<CR>
 map <A-k> :MBEbp<CR>
 
@@ -241,4 +245,11 @@ set foldlevelstart=1
 "set foldmethod=indent
 "set foldnestmax=2
 
+augroup filetype_lua
+    autocmd!
+    autocmd FileType lua setlocal iskeyword+=:
+augroup END
 
+"to set the gui font (this will pop up a window ):
+":set guifont=*
+"
