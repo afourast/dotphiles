@@ -50,7 +50,8 @@ ZSH_THEME="mycustom"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting vi-mode zsh-history-substring-search)
+
 
 # User configuration
 
@@ -111,4 +112,10 @@ alias ev='vim ~/.vimrc'
 alias et='vim ~/.tmux.conf'
 alias ez='vim ~/.zshrc'
 #######################################################
+
+#zsh vim mode
+bindkey -v
+bindkey '^k' up-line-or-search
+bindkey '^j' down-line-or-search
+
 

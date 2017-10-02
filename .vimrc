@@ -25,6 +25,7 @@ Plugin 'jaredly/vim-debug'
 Plugin 'bserem/vim-greek-spell'
 "Plugin 'vim-scripts/LaTeX-Suite-aka-Vim-LaTeX'
 Plugin 'vim-latex/vim-latex'
+Plugin 'davidhalter/jedi-vim'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex'
@@ -253,3 +254,23 @@ augroup END
 "to set the gui font (this will pop up a window ):
 ":set guifont=*
 "
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+    \ set textwidth=99 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+
+augroup auto_comment
+    au!
+    au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
+
+let NERDTreeIgnore=['\.pyc$'] "ignore files in NERDTree
+
+"highlight word under cursor
+autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+
